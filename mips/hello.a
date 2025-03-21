@@ -1,0 +1,24 @@
+
+.text
+.globl main
+
+main:
+
+  # linux file descriptors
+  ; STDIN = 0
+  ; STDOUT = 1
+  ; STDERR = 2
+
+  # print message
+  li $v0, 4
+  la $a0, msg
+  syscall
+
+  # exit
+  li $v0, 10
+  syscall
+
+.data
+
+msg:
+  .asciiz "Hello, world!\n"
