@@ -5,9 +5,9 @@
 main:
 
   # linux file descriptors
-  ; STDIN = 0
-  ; STDOUT = 1
-  ; STDERR = 2
+  # ; STDIN = 0
+  # ; STDOUT = 1
+  # ; STDERR = 2
 
   # print message
   li $v0, 4
