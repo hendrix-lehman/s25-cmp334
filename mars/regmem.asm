@@ -16,11 +16,12 @@ __start:
 	#lh $t2, num
 	lb $t2, num
 	
-	li $t0, 7 # last "index" in the list
+	lw $t0, list_count
+	#li $t0, 7 # last "index" in the list
 	li $s0, 0 # current "index"
 	li $s1, 0 # mem address base
 loop:
-	beq $t0, $s0, exit
+	beq $t0, $s0, loop_exit
 	
 	lw $t3, list($s1)
 	
@@ -32,7 +33,8 @@ loop:
 	addi $s1, $s1, 4
 	addi $s0, $s0, 1
 	j loop
-	
+
+loop_exit:	 	 
 	#lw $t3, list # this is 4 from the list
 	#lw $t4, list + 4 # this is 6 from the list
 	#lw $t5, list + 8 # this is 1 from the list
@@ -50,3 +52,4 @@ exit:
 	# num is a representation of an int data type in Java. It uses 4 bytes or 32 bits in size.
 num: 	.space 4
 list:	.word 4, 6, 1, 9, 12, 8, 32
+list_count: .word 7
